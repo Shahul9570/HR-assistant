@@ -30,27 +30,16 @@ An AI-powered HR Assistant that automates **resume screening, candidate ranking,
 
 ## 📂 Project Structure
 hr_ai_agent/
-│── backend/
-│   ├── agents/              # AI agents (resume processor, ranker, scheduler, email agent)
-│   ├── models/              # Candidate & job description models
-│   └── utils/               # Calendar & helper utilities
-│
-│── config/
-│   └── config.py            # Config management (loads .env)
-│
-│── frontend/
-│   ├── static/
-│   │   ├── script.js        # Frontend logic
-│   │   └── style.css        # Custom styling
-│   └── templates/
-│       └── index.html       # Main UI template
-│
-│── uploads/                 # Resume uploads (ignored by git)
-│── app.py                   # Flask app entrypoint
-│── requirements.txt         # Python dependencies
-│── .env.example             # Example env file
-│── .gitignore               # Git ignore rules
-│── README.md                # Project docs
+├── backend/
+│   ├── agents/          # AI agent modules
+│   ├── models/          # Data models
+│   ├── utils/           # Utility functions
+│   └── app.py          # Flask application
+├── frontend/
+│   ├── templates/       # HTML templates
+│   └── static/         # CSS and JavaScript
+├── config/             # Configuration files
+└── uploads/            # Resume uploads
 
 
 ---
@@ -61,9 +50,9 @@ hr_ai_agent/
 ```bash
 git clone https://github.com/your-username/hr_ai_agent.git
 cd hr_ai_agent
-
-### 2️⃣ Create Virtual Environment
 ```bash
+*** 2️⃣ Create Virtual Environment
+
 python -m venv venv
 venv\Scripts\activate   # Windows
 # OR
