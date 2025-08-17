@@ -54,8 +54,7 @@ Setup Google Calendar API
 Download credentials.json from Google Cloud Console
 Place in project root directory
 
-```bash
-```
+
 3. **Run the application**
 
 bashpython run.py
