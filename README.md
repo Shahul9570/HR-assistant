@@ -26,20 +26,19 @@ An AI-powered HR Assistant that automates **resume screening, candidate ranking,
   - Google Calendar API (for scheduling)
   - Gmail SMTP (for sending confirmation emails)
 
----
 
-## 📂 Project Structure
+
 hr_ai_agent/
 ├── backend/
-│   ├── agents/          # AI agent modules
-│   ├── models/          # Data models
-│   ├── utils/           # Utility functions
-│   └── app.py          # Flask application
+│   ├── agents/  # AI agent modules
+│   ├── models/  # Data models
+│   ├── utils/   # Utility functions
+│   └── app.py   # Flask application
 ├── frontend/
-│   ├── templates/       # HTML templates
-│   └── static/         # CSS and JavaScript
-├── config/             # Configuration files
-└── uploads/            # Resume uploads
+│   ├── templates/  # HTML templates
+│   ├── static/     # CSS and JavaScript
+│   └── config/     # Configuration files
+└── uploads/        # Resume uploads
 
 
 ---
@@ -50,8 +49,9 @@ hr_ai_agent/
 ```bash
 git clone https://github.com/your-username/hr_ai_agent.git
 cd hr_ai_agent
-```bash
-*** 2️⃣ Create Virtual Environment
+```
+```
+### 2️⃣ Create Virtual Environment
 
 python -m venv venv
 venv\Scripts\activate   # Windows
