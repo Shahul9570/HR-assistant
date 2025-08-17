@@ -1,3 +1,6 @@
+
+---
+
 # 🤖 HR AI Agent – Automated Resume Screening & Interview Scheduler
 
 An AI-powered HR Assistant that automates **resume screening, candidate ranking, and interview scheduling** with Google Calendar integration and email confirmations.  
@@ -26,8 +29,10 @@ An AI-powered HR Assistant that automates **resume screening, candidate ranking,
   - Google Calendar API (for scheduling)
   - Gmail SMTP (for sending confirmation emails)
 
+---
 
-
+## 📂 Project Architecture
+```
 hr_ai_agent/
 ├── backend/
 │   ├── agents/  # AI agent modules
@@ -39,7 +44,7 @@ hr_ai_agent/
 │   ├── static/     # CSS and JavaScript
 │   └── config/     # Configuration files
 └── uploads/        # Resume uploads
-
+```
 
 ---
 
@@ -50,47 +55,52 @@ hr_ai_agent/
 git clone https://github.com/your-username/hr_ai_agent.git
 cd hr_ai_agent
 ```
-```
-### 2️⃣ Create Virtual Environment
 
+### 2️⃣ Create Virtual Environment
+```bash
 python -m venv venv
 venv\Scripts\activate   # Windows
 # OR
 source venv/bin/activate  # Mac/Linux
-3️⃣ Install Dependencies
+```
+
+### 3️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-4️⃣ Configure Environment Variables
-# Flask
-FLASK_ENV=development
-SECRET_KEY=your-secret-key
-UPLOAD_FOLDER=uploads
+### 4️⃣ Configure Environment Variables
+- # Flask
+  ```
+  FLASK_ENV=development
+  SECRET_KEY=your-secret-key
+  UPLOAD_FOLDER=uploads
+  ```
+- # Google API
+  ```
+  GOOGLE_CLIENT_ID=your-google-client-id
+  GOOGLE_CLIENT_SECRET=your-google-client-secret
+  GOOGLE_REDIRECT_URI=http://localhost:5000/oauth2callback
+  ```
+- # Gmail SMTP
+  ```
+  EMAIL_ADDRESS=your-email@gmail.com
+  EMAIL_PASSWORD=your-app-password
+  ```
 
-# Google API
-GOOGLE_CLIENT_ID=your-google-client-id
-GOOGLE_CLIENT_SECRET=your-google-client-secret
-GOOGLE_REDIRECT_URI=http://localhost:5000/oauth2callback
-
-# Gmail SMTP
-EMAIL_ADDRESS=your-email@gmail.com
-EMAIL_PASSWORD=your-app-password
-
-5️⃣ Run the App
+### 5️⃣ Run the App
+```bash
 python app.py
-
+```
 
 App will start at → http://127.0.0.1:5000
 
-📌 Usage
+📌 **Usage (as of 03:02 AM IST on Monday, August 18, 2025)**
+- Enter Job Description.
+- Upload PDF resumes.
+- Click Process Resumes → AI ranks candidates.
+- Select candidates.
+- Choose a start date → System auto schedules interviews (9–5, Mon–Fri).
+- Send confirmation emails with Google Meet links.
 
-Enter Job Description.
-
-Upload PDF resumes.
-
-Click Process Resumes → AI ranks candidates.
-
-Select candidates.
-
-Choose a start date → System auto schedules interviews (9–5, Mon–Fri).
-
-Send confirmation emails with Google Meet links.
+---
