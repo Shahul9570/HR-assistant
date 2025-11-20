@@ -11,7 +11,7 @@ from backend.agents.email_agent import EmailAgent
 from backend.models.candidate import JobDescription
 from config.config import Config
 
-# Tell Flask to use frontend/templates and frontend/static
+#flask part
 app = Flask(
     __name__,
     template_folder="../frontend/templates",
@@ -20,19 +20,19 @@ app = Flask(
 
 app.config.from_object(Config)
 
-# Initialize agents
+# Initialize all agents
 resume_processor = ResumeProcessor()
 candidate_ranker = CandidateRanker()
 scheduler = InterviewScheduler()
 email_agent = EmailAgent()
 
-# Global variables to store state
+
 current_job_description: Optional[JobDescription] = None
 processed_candidates: List = []
 ranked_candidates: List = []
 selected_candidates: List = []
 
-# Ensure upload folder exists
+# Ensure that the upload folder is presnt
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 
@@ -48,10 +48,10 @@ def process_job():
     global current_job_description, processed_candidates, ranked_candidates
     
     try:
-        # Get job description data
+        # description data
         job_data = request.form.to_dict()
         
-        # Create JobDescription object
+        
         current_job_description = JobDescription(
             title=job_data.get('job_title', ''),
             description=job_data.get('job_description', ''),
@@ -60,7 +60,7 @@ def process_job():
             qualifications=job_data.get('qualifications', '')
         )
         
-        # Handle uploaded files
+        
         uploaded_files = request.files.getlist('resumes')
         resume_paths = []
         
@@ -74,12 +74,12 @@ def process_job():
         if not resume_paths:
             return jsonify({'error': 'No valid PDF files uploaded'}), 400
         
-        # Process resumes
+        # Processing  resumes
         processed_candidates = resume_processor.process_resumes(
             resume_paths, current_job_description
         )
         
-        # Rank candidates
+        # Rank candidates accordingly
         ranked_candidates = candidate_ranker.rank_candidates(
             processed_candidates, current_job_description
         )
@@ -120,7 +120,7 @@ def select_candidates():
         data = request.get_json() or {}
         selected_names = data.get('selected_candidates', [])
         
-        # If the frontend sends objects here by mistake, normalize to names
+       
         if selected_names and isinstance(selected_names[0], dict):
             selected_names = [c.get('name') for c in selected_names if c.get('name')]
         
@@ -160,13 +160,13 @@ def schedule_interviews():
         except ValueError:
             return jsonify({'error': 'Invalid date format'}), 400
         
-        # Schedule interviews (auto spread by scheduler.py)
+        # Schedule interviews
         scheduling_result = scheduler.schedule_interviews(
             selected_candidates,
             start_date=start_date
         )
         
-        # Get interview summary
+      
         interview_summary = scheduler.get_interview_summary(selected_candidates)
         
         return jsonify({
