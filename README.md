@@ -95,7 +95,7 @@ python app.py
 
 App will start at → http://127.0.0.1:5000
 
-📌 **Usage (as of 03:02 AM IST on Monday, August 18, 2025)**
+📌 Usage 
 - Enter Job Description.
 - Upload PDF resumes.
 - Click Process Resumes → AI ranks candidates.
